@@ -6,8 +6,10 @@ on:
       - main  # or your default branch
   workflow_dispatch:
 permissions:
-  id-token: write
   contents: read
+  id-token: write
+  pages: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
