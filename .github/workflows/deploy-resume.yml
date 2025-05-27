@@ -3,11 +3,12 @@ name: Deploy Resume to GitHub Pages
 on:
   push:
     branches:
-      - main  # or your default branch
+      - main
   workflow_dispatch:
+
 permissions:
-  contents: read
   id-token: write
+  contents: read
   pages: write
 
 jobs:
@@ -23,7 +24,8 @@ jobs:
       - name: Upload resume to Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './'  # Change if your resume is in a subfolder
+          path: './'  # Make sure this points to your built output
+          name: github-pages  # Ensure this name is not used anywhere else
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
